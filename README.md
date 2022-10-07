@@ -2,7 +2,7 @@
 
 -   `Use your github account to fork this repository`
 -   `Run composer install or run composer install --ignore-platform-req=ext-gd if you have problems installing composer`
--   `Change the env example from env`
+-   `Change the env example from env but if you env you can skip this part`
 -   `Create the environment and fill it with the needed data, such as the database and mailtrap, for example`
 -   `Run php artisan key:generate`
 -   `Run php artisan serve`
