@@ -23,3 +23,5 @@ Route::get('/customer/all',['uses' => 'CustomerController@getCustomerAll','as' =
 // Route::get('/customer/show/{id}',['uses' => 'CustomerController@getCustomer','as' => 'customer.getcustomer'] );
 
 Route::resource('customer', 'CustomerController');
+
+Route::resource('item', 'ItemController');
