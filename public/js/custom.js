@@ -2,7 +2,8 @@ $(document).ready(function () {
     $("#items").hide();
     $("#item").on("click", function (e) {
         e.preventDefault();
-        $("#customers").hide("slow");
+        // $("#customers").hide("slow");
+        $("#customers").fadeOut(2000);
         $("#items").show();
 
         $.ajax({
