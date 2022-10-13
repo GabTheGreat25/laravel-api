@@ -1,6 +1,6 @@
 # HOW TO SETUP THIS PROJECT
 
--   `Use your github account to fork this repository`
+-   `Use your github account to fork this repository or download as zip`
 -   `Run composer install or run composer install --ignore-platform-req=ext-gd if you have problems installing composer`
 -   `Change the env example from env but if you env you can skip this part`
 -   `Create the environment and fill it with the needed data, such as the database and mailtrap, for example`
