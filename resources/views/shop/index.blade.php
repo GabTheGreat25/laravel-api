@@ -3,9 +3,9 @@
 @section('body')
 <h1>Your Shopping Cart</h1>
 <div id="cart-container">
-    <div id="cart">
+    <div id="cart" style="margin-top: .75rem;">
         <i class="fa fa-shopping-cart fa-2x openCloseCart" aria-hidden="true"></i>
-        <button id="emptyCart">Empty Cart</button>
+        <button id="emptyCart" class="btn btn-dark">Empty Cart</button>
     </div>
     <span id="itemCount"></span>
 </div>
@@ -18,14 +18,14 @@
         <div id="cartItems">
             {{-- <button class="removeItem">Remove Item</button> --}}
         </div>
-        <button class="btn btn-primary" id="checkout">Checkout</button>;
+        <button class="btn btn-primary" id="checkout">Checkout</button>
         <span id="cartTotal"></span>
     </div>
 </div>
 
 <nav>
     <ul>
-        <li><a href="{{ url()->previous()  }}">Shopping Cart</a></li>
+        <li><a href="index.html">Shopping Cart</a></li>
     </ul>
 </nav>
 <div class="container container-fluid" id="items">
