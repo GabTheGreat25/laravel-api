@@ -3,7 +3,7 @@
 @section('body')
 <h1>Your Shopping Cart</h1>
 <div id="cart-container">
-    <div id="cart" style="margin-top: .75rem;">
+    <div id="cart">
         <i class="fa fa-shopping-cart fa-2x openCloseCart" aria-hidden="true"></i>
         <button id="emptyCart" class="btn btn-dark">Empty Cart</button>
     </div>
