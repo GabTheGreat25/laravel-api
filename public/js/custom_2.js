@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#itable").DataTable({
         ajax: {
-            url: "/api/item",
+            url: "http://localhost:5000/api/v1/items",
             dataSrc: "",
         },
         dom: '<"top"<"left-col"B><"center-col"l><"right-col"f>>rtip',
@@ -43,11 +43,7 @@ $(document).ready(function () {
             {
                 data: null,
                 render: function (data, type, JsonResultRow, row) {
-                    return (
-                        '<img src="/storage/' +
-                        JsonResultRow.imagePath +
-                        '" height="100px" width="100px">'
-                    );
+                    return `<img src= ${data.imagePath} "height="100px" width="100px">`;
                 },
             },
             {
@@ -121,7 +117,7 @@ $(document).ready(function () {
                 if (result)
                     $.ajax({
                         type: "DELETE",
-                        url: "/api/item/" + id,
+                        url: `http://localhost:5000/api/v1/items/{id}`,
                         headers: {
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                                 "content"
@@ -151,18 +147,18 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: "/api/item/" + id + "/edit",
+            url: `http://localhost:5000/api/v1/items/${id}`,
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                $("#item_id").val(data.item_id);
-                $("#description").val(data.description);
-                $("#cost_price").val(data.cost_price);
-                $("#sell_price").val(data.sell_price);
-                $("#title").val(data.title);
+                $("#item_id").val(data[0].item_id);
+                $("#description").val(data[0].description);
+                $("#cost_price").val(data[0].cost_price);
+                $("#sell_price").val(data[0].sell_price);
+                $("#title").val(data[0].title);
             },
             error: function (error) {
                 console.log("error");
@@ -178,12 +174,16 @@ $(document).ready(function () {
 
         var crow = $("tr td:contains(" + id + ")").closest("tr");
         var table = $("#itable").DataTable();
-        var data = $("#iform").serialize();
+        var data = $("#iform")[0];
+        console.log(data);
+        let formData = new FormData(data);
 
         $.ajax({
             type: "PUT",
-            url: `/api/item/${id}`,
-            data: data,
+            url: `http://localhost:5000/api/v1/items/${id}`,
+            data: formData,
+            contentType: false,
+            processData: false,
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
@@ -191,7 +191,8 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 $("#itemModal").modal("hide");
-                table.row(crow).data(data).invalidate().draw(false);
+                // table.row(crow).data(data).invalidate().draw(false);
+                table.ajax.reload();
             },
             error: function (error) {
                 console.log(error);

@@ -28,9 +28,10 @@ class ItemController extends Controller
         // }
     }
 
-    // public function getItem (){
-    //     return view('Item.index');
-    // }
+    public function getItem()
+    {
+        return view('Item.index');
+    }
     /**
      * Show the form for creating a new resource.
      *

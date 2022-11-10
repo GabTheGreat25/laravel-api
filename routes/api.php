@@ -22,6 +22,7 @@ Route::get('/customer/all', ['uses' => 'CustomerController@getCustomerAll', 'as'
 
 Route::resource('customer', 'CustomerController');
 Route::resource('item', 'ItemController');
+route::view('/item-index', 'Item.Index');
 
 Route::post('/item/checkout', [
     'uses' => 'ItemController@postCheckout',

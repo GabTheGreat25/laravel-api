@@ -34,4 +34,4 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src="js/custom_2.js"></script>
-<script src="js/dashboard.js"></script>
+{{-- <script src="js/dashboard.js"></script> --}}
