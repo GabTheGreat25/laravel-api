@@ -117,7 +117,7 @@ $(document).ready(function () {
                 if (result)
                     $.ajax({
                         type: "DELETE",
-                        url: `http://localhost:5000/api/v1/items/{id}`,
+                        url: `http://localhost:5000/api/v1/items/${id}`,
                         headers: {
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                                 "content"
